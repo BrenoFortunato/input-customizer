@@ -29,7 +29,7 @@ E ao final da *tag body*:
 </body>
 ```
 
-**Importante:** Certifique-se de que o *jQuery* esteja presente no body.
+Certifique-se de que o **jQuery v3.2.1**, ou superior, esteja presente no body.
 
 ## Utilização
 Para aplicar uma máscara, basta adicioná-la como classe a um **input de texto**, por exemplo:
@@ -67,11 +67,11 @@ As máscaras disponíveis são:
 - state-mask
 
 ## Solução de Problemas
-Na view onde você realizou a configuração inicial (no exemplo, **layouts/app.blade.php**) certifique-se de **não** ter incluído Javascript e CSS dos seguintes plugins:
+Na view onde foi realizada a configuração inicial (no exemplo, **layouts/app.blade.php**) certifique-se de **não** ter incluído Javascript e CSS dos seguintes plugins:
 - Moment
 - Datetimepicker
 - Inputmask
 - jQuery MaskMoney
 - SweetAlert2
 
-E, também, de ter incluído o **jQuery v3.2.1** ou superior ao seu body.
+Além disso, certifique-se de ter incluído o **jQuery v3.2.1**, ou superior, ao body da view supracitada.
