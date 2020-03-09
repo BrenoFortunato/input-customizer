@@ -42,10 +42,29 @@ Ou em blade:
 {!! Form::text('price', null, ['class' => 'form-control money-mask']) !!}
 ```
 
-Para verificar quais máscaras estão disponíveis, bem como criar novas, acesse o arquivo em:
-```
-views/vendor/input-customizer/masks.blade.php
-```
+As máscaras disponíveis são:
+- money-mask
+- float-mask
+- double-mask
+- integer-mask
+- zero-to-ten-mask
+- percentage-mask
+- latitude-mask
+- longitude-mask
+- document-mask
+- national-id-mask
+- phone-mask
+- datetime-mask
+- datetime-blockpast-mask
+- date-mask
+- date-blockpast-mask
+- time-mask
+- time-blockpast-mask
+- duration-mask
+- time-interval-mask
+- vehicle-plate-mask
+- zipcode-mask
+- state-mask
 
 ## Solução de Problemas
 Na view onde você realizou a configuração inicial (no exemplo, **layouts/app.blade.php**) certifique-se de **não** ter incluído Javascript e CSS dos seguintes plugins:
