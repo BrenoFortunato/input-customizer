@@ -8,7 +8,7 @@ composer require brenofortunato/input-customizer
 
 ## Publicar Assets
 ```
-php artisan vendor:publish --provider=BrenoFortunato\InputCustomizer\InputCustomizerServiceProvider  
+php artisan vendor:publish --provider="BrenoFortunato\InputCustomizer\InputCustomizerServiceProvider"
 ```
 
 ## Configuração Inicial
