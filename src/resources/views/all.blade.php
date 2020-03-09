@@ -2,10 +2,10 @@
  
 @push("css")
     {{-- Datetimepicker v4.17.47 --}}
-    <link rel="stylesheet" href="{{ asset('vendor/inputcustomizer/css/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/input-customizer/css/bootstrap-datetimepicker.min.css') }}">
 
     {{-- SweetAlert2 v9.8.2 --}}
-    <link rel="stylesheet" href="{{ asset('vendor/inputcustomizer/css/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/input-customizer/css/sweetalert2.min.css') }}">
 
     <style type="text/css">
         .swal2-popup {
@@ -29,19 +29,19 @@
 
 @push("scripts")
     {{-- Moment v2.24.0 --}}
-    <script src="{{ asset('vendor/inputcustomizer/js/moment-with-locales.min.js') }}"></script>
+    <script src="{{ asset('vendor/input-customizer/js/moment-with-locales.min.js') }}"></script>
     
     {{-- Datetimepicker v4.17.47 --}}
-    <script src="{{ asset('vendor/inputcustomizer/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('vendor/input-customizer/js/bootstrap-datetimepicker.min.js') }}"></script>
 
     {{-- Inputmask v4.0.3-beta.1 --}}
-    <script src="{{ asset('vendor/inputcustomizer/js/jquery.inputmask.bundle.js') }}"></script>
+    <script src="{{ asset('vendor/input-customizer/js/jquery.inputmask.bundle.js') }}"></script>
 
     {{-- jQuery MaskMoney v3.1.1 --}}
-    <script src="{{ asset('vendor/inputcustomizer/js/jquery.maskMoney.min.js') }}"></script>
+    <script src="{{ asset('vendor/input-customizer/js/jquery.maskMoney.min.js') }}"></script>
 
     {{-- SweetAlert2 v9.8.2 --}}
-    <script src="{{ asset('vendor/inputcustomizer/js/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('vendor/input-customizer/js/sweetalert2.min.js') }}"></script>
 
     <script type="text/javascript">
         // Money
