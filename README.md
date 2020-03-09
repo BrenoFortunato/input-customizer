@@ -79,4 +79,4 @@ Além disso, certifique-se de ter incluído o **jQuery v3.2.1**, ou superior, ao
 
 ## Licença
 
-The MIT License (MIT). [Clique aqui](https://github.com/yajra/laravel-datatables/blob/master/LICENSE.md) para maiores informações.
+The MIT License (MIT). [Clique aqui](https://github.com/BrenoFortunato/input-customizer/blob/master/LICENSE) para maiores informações.
