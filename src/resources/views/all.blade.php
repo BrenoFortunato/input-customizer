@@ -2,10 +2,10 @@
  
 @push("css")
     {{-- Datetimepicker v4.17.47 --}}
-    <link rel="stylesheet" href="{{ base_path('vendor/brenofortunato/input-customizer/src/public/css/bootstrap-datetimepicker.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/inputcustomizer/css/bootstrap-datetimepicker.min.css') }}">
 
     {{-- SweetAlert2 v9.8.2 --}}
-    <link rel="stylesheet" href="{{ base_path('vendor/brenofortunato/input-customizer/src/public/css/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/inputcustomizer/css/sweetalert2.min.css') }}">
 
     <style type="text/css">
         .swal2-popup {
@@ -29,19 +29,19 @@
 
 @push("scripts")
     {{-- Moment v2.24.0 --}}
-    <script src="{{ base_path('vendor/brenofortunato/input-customizer/src/public/js/moment-with-locales.min.js') }}"></script>
+    <script src="{{ asset('vendor/inputcustomizer/js/moment-with-locales.min.js') }}"></script>
     
     {{-- Datetimepicker v4.17.47 --}}
-    <script src="{{ base_path('vendor/brenofortunato/input-customizer/src/public/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('vendor/inputcustomizer/js/bootstrap-datetimepicker.min.js') }}"></script>
 
     {{-- Inputmask v4.0.3-beta.1 --}}
-    <script src="{{ base_path('vendor/brenofortunato/input-customizer/src/public/js/jquery.inputmask.bundle.js') }}"></script>
+    <script src="{{ asset('vendor/inputcustomizer/js/jquery.inputmask.bundle.js') }}"></script>
 
     {{-- jQuery MaskMoney v3.1.1 --}}
-    <script src="{{ base_path('vendor/brenofortunato/input-customizer/src/public/js/jquery.maskMoney.min.js') }}"></script>
+    <script src="{{ asset('vendor/inputcustomizer/js/jquery.maskMoney.min.js') }}"></script>
 
     {{-- SweetAlert2 v9.8.2 --}}
-    <script src="{{ base_path('vendor/brenofortunato/input-customizer/src/public/js/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('vendor/inputcustomizer/js/sweetalert2.min.js') }}"></script>
 
     <script type="text/javascript">
         // Money

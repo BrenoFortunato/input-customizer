@@ -23,10 +23,12 @@ class InputCustomizerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'input-customizer');
+        $this->publishes([
+            __DIR__.'/resources/views' => resource_path('views/vendor/input-customizer'),
+        ]);
 
         $this->publishes([
-        __DIR__.'/resources/views' => resource_path('views/vendor/input-customizer'),
-    ]);
+            __DIR__.'/public' => public_path('vendor/input-customizer'),
+        ]);
     }
 }
