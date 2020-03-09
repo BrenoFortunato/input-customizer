@@ -47,10 +47,11 @@ Para verificar quais máscaras estão disponíveis, bem como criar novas, acesse
 views/vendor/input-customizer/all.blade.php
 ```
 
-## Solução de problemas
+## Solução de Problemas
 Na view onde você realizou a configuração inicial (no exemplo, **layouts/app.blade.php**) certifique-se de **não** ter incluído Javascript e CSS dos seguintes plugins:
 - Moment
 - Datetimepicker
 - Inputmask
 - jQuery MaskMoney
 - SweetAlert2
+E, também, de ter incluído o **jQuery v3.2.1** ou superior ao seu body.
