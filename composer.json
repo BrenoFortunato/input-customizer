@@ -1,0 +1,33 @@
+{
+    "name": "brenofortunato/input-customizer",
+    "description": "Contains a set of masks to customize text inputs.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Breno Fortunato",
+            "email": "brenofortunato@gmail.com"
+        }
+    ],
+    "keywords": ["Laravel", "Mask", "Input", "Custom"],
+    "require": {
+        "php" : ">=7.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "BrenoFortunato\\InputCustomizer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BrenoFortunato\\InputCustomizer\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "BrenoFortunato\\InputCustomizer\\InputCustomizerServiceProvider"
+            ]
+        }
+    }
+}
