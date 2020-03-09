@@ -2,17 +2,17 @@
 Contém um conjunto de máscaras para personalizar inputs de texto.
 
 ## Instalação
+Para instalar, basta utilizar o comando abaixo:
 ```
 composer require brenofortunato/input-customizer
 ```
-
-## Publicar Assets
+Em seguida, publique os assets:
 ```
 php artisan vendor:publish --provider="BrenoFortunato\InputCustomizer\InputCustomizerServiceProvider"
 ```
 
 ## Configuração Inicial
-Na view onde deseja utilizar as máscaras, por exemplo **layouts/app.blade.php**, adicione ao final da *tag head*:
+Na view onde deseja utilizar as máscaras, por exemplo **layouts/app.blade.php**, adicione ao final da tag **head**:
 ```html
 <head>
     ...
@@ -21,7 +21,7 @@ Na view onde deseja utilizar as máscaras, por exemplo **layouts/app.blade.php**
 </head>
 ```
 
-E ao final da *tag body*:
+E, ao final da tag **body**:
 ```html
 <body>
     ...
@@ -75,3 +75,8 @@ Na view onde foi realizada a configuração inicial (no exemplo, **layouts/app.b
 - SweetAlert2
 
 Além disso, certifique-se de ter incluído o **jQuery v3.2.1**, ou superior, ao body da view supracitada.
+
+
+## Licença
+
+The MIT License (MIT). [Clique aqui](https://github.com/yajra/laravel-datatables/blob/master/LICENSE.md) para maiores informações.
