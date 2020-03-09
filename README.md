@@ -54,4 +54,5 @@ Na view onde você realizou a configuração inicial (no exemplo, **layouts/app.
 - Inputmask
 - jQuery MaskMoney
 - SweetAlert2
+
 E, também, de ter incluído o **jQuery v3.2.1** ou superior ao seu body.
