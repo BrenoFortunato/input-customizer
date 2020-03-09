@@ -8,7 +8,7 @@ composer require brenofortunato/input-customizer
 
 ## Publicar Assets
 ```
-php artisan vendor:publish --tag=brenofortunato\input-customizer\InputCustomizerServiceProvider  
+php artisan vendor:publish --provider=BrenoFortunato\InputCustomizer\InputCustomizerServiceProvider  
 ```
 
 ## Configuração Inicial
@@ -16,7 +16,7 @@ Na view onde deseja utilizar as máscaras, por exemplo **layouts/app.blade.php**
 ```html
 <head>
     ...
-    @include('input-customizer.all')
+    @include('vendor.input-customizer.all')
     @stack('css')
 </head>
 ```
@@ -49,10 +49,8 @@ views/vendor/input-customizer/all.blade.php
 
 ## Solução de problemas
 Na view onde você realizou a configuração inicial (no exemplo, **layouts/app.blade.php**) certifique-se de **não** ter incluído Javascript e CSS dos seguintes plugins:
-```
-Moment
-Datetimepicker
-Inputmask
-jQuery
-SweetAlert2
-```
+- Moment
+- Datetimepicker
+- Inputmask
+- jQuery MaskMoney
+- SweetAlert2
