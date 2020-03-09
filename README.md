@@ -1,5 +1,5 @@
 # InputCustomizer
-Contém um conjunto de máscaras para personalizar os inputs de texto.
+Contém um conjunto de máscaras para personalizar inputs de texto.
 
 ## Instalação
 ```
@@ -32,7 +32,7 @@ E ao final da *tag body*:
 Certifique-se de que o **jQuery v3.2.1**, ou superior, esteja presente no body.
 
 ## Utilização
-Para aplicar uma máscara, basta adicioná-la como classe a um **input de texto**, por exemplo:
+Para aplicar uma máscara, basta adicioná-la como classe a um **input do tipo texto**, por exemplo:
 ```html
 <input class="form-control money-mask" name="price" type="text">
 ```
