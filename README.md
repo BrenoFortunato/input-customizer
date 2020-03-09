@@ -16,7 +16,7 @@ Na view onde deseja utilizar as máscaras, por exemplo **layouts/app.blade.php**
 ```html
 <head>
     ...
-    @include('vendor.input-customizer.all')
+    @include('vendor.input-customizer.masks')
     @stack('css')
 </head>
 ```
@@ -44,7 +44,7 @@ Ou em blade:
 
 Para verificar quais máscaras estão disponíveis, bem como criar novas, acesse o arquivo em:
 ```
-views/vendor/input-customizer/all.blade.php
+views/vendor/input-customizer/masks.blade.php
 ```
 
 ## Solução de Problemas
