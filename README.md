@@ -1,5 +1,5 @@
 # InputCustomizer
-Contém um conjunto de máscaras para personalizar as inputs de texto.
+Contém um conjunto de máscaras para personalizar os inputs de texto.
 
 ## Instalação
 ```
@@ -12,7 +12,7 @@ php artisan vendor:publish --tag=brenofortunato\input-customizer\InputCustomizer
 ```
 
 ## Configuração Inicial
-Na view onde deseja utilizar as máscaras, por exemplo "layouts/app.blade.php", adicione ao final da tag head:
+Na view onde deseja utilizar as máscaras, por exemplo **layouts/app.blade.php**, adicione ao final da *tag head*:
 ```html
 <head>
     ...
@@ -21,7 +21,7 @@ Na view onde deseja utilizar as máscaras, por exemplo "layouts/app.blade.php", 
 </head>
 ```
 
-E ao final da tag body:
+E ao final da *tag body*:
 ```html
 <body>
     ...
@@ -29,10 +29,10 @@ E ao final da tag body:
 </body>
 ```
 
-Certifique-se de que o **jQuery** esteja presente no body!
+**Importante:** Certifique-se de que o *jQuery* esteja presente no body.
 
 ## Utilização
-Para aplicar uma máscara, basta adicioná-la como classe ao input, por exemplo:
+Para aplicar uma máscara, basta adicioná-la como classe a um **input de texto**, por exemplo:
 ```html
 <input class="form-control money-mask" name="price" type="text">
 ```
@@ -41,8 +41,6 @@ Ou em blade:
 ```php
 {!! Form::text('price', null, ['class' => 'form-control money-mask']) !!}
 ```
-
-**Importante:** O input deve ser do tipo "text" para a máscara funcionar.
 
 Para verificar quais máscaras estão disponíveis, bem como criar novas, acesse o arquivo em:
 ```
