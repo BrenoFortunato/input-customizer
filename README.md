@@ -16,7 +16,7 @@ Na view onde deseja utilizar as máscaras, por exemplo **layouts/app.blade.php**
 ```html
 <head>
     ...
-    @include('vendor.input-customizer.all')
+    @include('input-customizer.all')
     @stack('css')
 </head>
 ```
@@ -45,4 +45,14 @@ Ou em blade:
 Para verificar quais máscaras estão disponíveis, bem como criar novas, acesse o arquivo em:
 ```
 views/vendor/input-customizer/all.blade.php
+```
+
+## Solução de problemas
+Na view onde você realizou a configuração inicial (no exemplo, **layouts/app.blade.php**) certifique-se de **não** ter incluído Javascript e CSS dos seguintes plugins:
+```
+Moment
+Datetimepicker
+Inputmask
+jQuery
+SweetAlert2
 ```
