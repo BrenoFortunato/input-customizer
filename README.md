@@ -60,9 +60,9 @@ As máscaras disponíveis são:
 - date-blockpast-mask
 - time-mask
 - time-blockpast-mask
-- two-digits-year-mask **new**
-- two-digits-year-blockpast-mask **new**
-- two-digits-month-mask **new**
+- two-digits-year-mask **--new--**
+- two-digits-year-blockpast-mask **--new--**
+- two-digits-month-mask **--new--**
 - duration-mask
 - time-interval-mask
 - vehicle-plate-mask
