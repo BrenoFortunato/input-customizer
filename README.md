@@ -8,7 +8,7 @@ composer require brenofortunato/input-customizer
 ```
 Em seguida, publique os assets:
 ```
-php artisan vendor:publish --provider="BrenoFortunato\InputCustomizer\InputCustomizerServiceProvider"
+php artisan vendor:publish --provider="BrenoFortunato\InputCustomizer\InputCustomizerServiceProvider" --force
 ```
 
 ## Configuração Inicial
@@ -60,6 +60,9 @@ As máscaras disponíveis são:
 - date-blockpast-mask
 - time-mask
 - time-blockpast-mask
+- two-digits-year-mask
+- two-digits-year-blockpast-mask
+- two-digits-month-mask
 - duration-mask
 - time-interval-mask
 - vehicle-plate-mask

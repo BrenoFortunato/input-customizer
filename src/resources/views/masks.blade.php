@@ -136,7 +136,6 @@
                 "min": 0,
                 "max": 10,
                 "digits": 0,
-                "groupSeparator": ".",
                 "autoGroup": true,
                 "allowMinus": false,
                 "removeMaskOnSubmit": true,
@@ -466,6 +465,106 @@
                 useCurrent: false,
                 disabledDates: [moment()],
                 minDate: moment()
+            });
+        });
+        // Two Digits Year
+        $(document).on("focus", ".two-digits-year-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um ano no formato <u>aa</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            $(this).datetimepicker({
+                locale: "pt-br",
+                format: 'YY',
+                useCurrent: false
+            });
+        });
+        // Two Digits Year Blockpast
+        $(document).on("focus", ".two-digits-year-blockpast-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um ano no formato <u>aa</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            $(this).datetimepicker({
+                locale: "pt-br",
+                format: 'YY',
+                useCurrent: false,
+                minDate: moment()
+            });
+        });
+        // Two Digits Month
+        $(document).on("focus", ".two-digits-month-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um mês no formato <u>mm</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+                "oncomplete": function() {
+                    if (this.value < 1 || this.value > 12) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe o número do mês, de 1 a 12.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+            });
+            $(this).datetimepicker({
+                locale: "pt-br",
+                format: 'MM',
+                useCurrent: false
             });
         });
         // Duration
