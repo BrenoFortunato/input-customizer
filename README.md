@@ -3,12 +3,12 @@ Contém um conjunto de máscaras para personalizar inputs de texto.
 
 ## Instalação
 Para instalar, basta utilizar o comando abaixo:
-```
+```php
 composer require brenofortunato/input-customizer
 ```
 Em seguida, publique os assets:
-```
-php artisan vendor:publish --provider="BrenoFortunato\InputCustomizer\InputCustomizerServiceProvider" --force
+```php
+php artisan vendor:publish --provider="BrenoFortunato\InputCustomizer\InputCustomizerServiceProvider"
 ```
 
 ## Configuração Inicial
@@ -60,14 +60,32 @@ As máscaras disponíveis são:
 - date-blockpast-mask
 - time-mask
 - time-blockpast-mask
-- two-digits-year-mask
-- two-digits-year-blockpast-mask
-- two-digits-month-mask
+- two-digits-year-mask **new**
+- two-digits-year-blockpast-mask **new**
+- two-digits-month-mask **new**
 - duration-mask
 - time-interval-mask
 - vehicle-plate-mask
 - zipcode-mask
 - state-mask
+
+## Atualização
+Caso você já tenha adicionado este pacote anteriormente, você deverá forçar a atualização dos assets para ter acesso às novas máscaras:
+```php
+php artisan vendor:publish --provider="BrenoFortunato\InputCustomizer\InputCustomizerServiceProvider" --force
+```
+Este comando sobrescreverá o arquivo em **resources/views/vendor/input-customizer/masks.blade.php**, portanto não o edite. Caso deseje adicionar suas próprias máscaras, siga as instruções da próxima sessão.
+
+## Máscaras Personalizadas
+Para adicionar suas próprias máscaras, na view onde foi realizada a configuração inicial (no exemplo, **layouts/app.blade.php**), faça uso do seguinte template:
+```javascript
+<script type="text/javascript">
+    $(document).on("focus", ".name-mask", function(){
+        $(this).inputmask("replace-with-type", {options});
+    });
+</script>
+```
+Para mais instruções, leia a seguinte documentação: [RobinHerbots/Inputmask](https://github.com/RobinHerbots/Inputmask).
 
 ## Solução de Problemas
 Na view onde foi realizada a configuração inicial (no exemplo, **layouts/app.blade.php**) certifique-se de **não** ter incluído Javascript e CSS dos seguintes plugins:
