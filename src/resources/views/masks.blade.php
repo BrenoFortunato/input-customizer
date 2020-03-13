@@ -13,10 +13,12 @@
         }
         .swal2-title {
             font-size: 20px;
+            margin-bottom: 10px;
         }
         .swal2-content {
             font-size: 16px;
             margin-bottom: 20px;
+            line-height: 20px;
         }
         .swal2-close {
             font-size: 30px;
