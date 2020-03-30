@@ -1,4 +1,4 @@
-{{-- Input Customizer v1.0 --}}
+{{-- Input Customizer v1.0.23 --}}
  
 @push("css")
     {{-- Datetimepicker v4.17.47 --}}
@@ -13,12 +13,10 @@
         }
         .swal2-title {
             font-size: 20px;
-            margin-bottom: 10px;
         }
         .swal2-content {
             font-size: 16px;
             margin-bottom: 20px;
-            line-height: 20px;
         }
         .swal2-close {
             font-size: 30px;
@@ -47,7 +45,10 @@
 
     <script type="text/javascript">
         // Money
-        $(document).on("focus", ".money-mask", function(){
+        $(".money-mask").each(function(){
+            $(this).val($(this).val().replace(".",","));
+        });
+        $(document).on("focus", ".money-mask:not([readonly])", function(){
             $(this).attr("maxLength", 24);
             $(this).maskMoney({
                 "prefix": "R$ ",
@@ -58,11 +59,28 @@
                 "allowNegative": true,
                 "allowEmpty": true
             });
-            $("form").submit(function(e) {
-                $(".money-mask").each(function(){
-                    $("form").append(`<input type="hidden" name="${$(this).attr("name")}" value="${$(this).maskMoney("unmasked")[0]}">`);
-                })
+        });
+        $(document).on("submit", "form", function(e){
+            // Non-array inputs
+            $(".money-mask:enabled").not("[name$='[]']").each(function(){
+                let value = ($(this).val())? $(this).maskMoney("unmasked")[0] : "";
+                $("form").append(`<input type="hidden" name="${$(this).attr("name")}" value=${value}>`);
             });
+            // Array inputs
+            let inputNamesArray = [];
+            $(".money-mask:enabled[name$='[]']").each(function(){
+                let inputName = $(this).attr("name");
+                if (!inputNamesArray.includes(inputName)) {
+                    inputNamesArray.push(inputName);
+                } 
+            });
+            inputNamesArray.forEach(function(inputName){
+                let baseName = inputName.replace("[]", "");
+                $(`input[name="${inputName}"]`).each(function(i){
+                    let value = ($(this).val())? $(this).maskMoney("unmasked")[0] : "";
+                    $("form").append(`<input type="hidden" name="${baseName}[${i}]" value=${value}>`);
+                });
+            }); 
         });
         // Float
         $(document).on("focus", ".float-mask", function(){
@@ -79,6 +97,7 @@
                 "removeMaskOnSubmit": true,
                 "autoUnmask": true,
                 "unmaskAsNumber": true,
+                "showMaskOnHover": false,
                 // Fix for starting with negative decimal
                 "onKeyDown": function(event, buffer, _caretPos, _opts) {
                     var currentValue = buffer.length == 2 ? buffer[0] : "";
@@ -88,23 +107,24 @@
         });
         // Double
         $(document).on("focus", ".double-mask", function(){
-            $(this).inputmask('numeric', {
-                'placeholder': '',
-                'rightAlign': false,
-                'integerDigits': 14,
-                'digits': 2,
-                'digitsOptional': true,
-                'groupSeparator': ".",
-                'radixPoint': ",",
-                'autoGroup': true,
-                'allowMinus': true,
-                'removeMaskOnSubmit': true,
-                'autoUnmask': true,
-                'unmaskAsNumber': true,
+            $(this).inputmask("numeric", {
+                "placeholder": "",
+                "rightAlign": false,
+                "integerDigits": 14,
+                "digits": 2,
+                "digitsOptional": true,
+                "groupSeparator": ".",
+                "radixPoint": ",",
+                "autoGroup": true,
+                "allowMinus": true,
+                "removeMaskOnSubmit": true,
+                "autoUnmask": true,
+                "unmaskAsNumber": true,
+                "showMaskOnHover": false,
                 // Fix for starting with negative decimal
-                'onKeyDown': function(event, buffer, _caretPos, _opts) {
+                "onKeyDown": function(event, buffer, _caretPos, _opts) {
                     var currentValue = buffer.length == 2 ? buffer[0] : "";
-                    if (currentValue === "-" && (event.key === "Decimal" || event.key === ".")) $(event.currentTarget).val('-0..');
+                    if (currentValue === "-" && (event.key === "Decimal" || event.key === ".")) $(event.currentTarget).val("-0..");
                 }
             });
         });
@@ -122,6 +142,7 @@
                 "removeMaskOnSubmit": true,
                 "autoUnmask": true,
                 "unmaskAsNumber": true,
+                "showMaskOnHover": false,
                 // Fix for starting with negative decimal
                 "onKeyDown": function(event, buffer, _caretPos, _opts) {
                     var currentValue = buffer.length == 2 ? buffer[0] : "";
@@ -143,6 +164,7 @@
                 "removeMaskOnSubmit": true,
                 "autoUnmask": true,
                 "unmaskAsNumber": true,
+                "showMaskOnHover": false
             });
         });
         // Percentage
@@ -161,6 +183,7 @@
                 "allowMinus": false,
                 "removeMaskOnSubmit": true,
                 "autoUnmask": true,
+                "showMaskOnHover": false,
                 // Fix decimal point on unmask
                 "onUnMask": function(maskedValue, _unmaskedValue) {
                     var x = maskedValue.split(",");
@@ -186,6 +209,7 @@
                 "removeMaskOnSubmit": true,
                 "autoUnmask": true,
                 "unmaskAsNumber": true,
+                "showMaskOnHover": false,
                 // Fix for starting with negative decimal
                 "onKeyDown": function(event, buffer, _caretPos, _opts) {
                     var currentValue = buffer.length == 2 ? buffer[0] : "";
@@ -210,6 +234,7 @@
                 "removeMaskOnSubmit": true,
                 "autoUnmask": true,
                 "unmaskAsNumber": true,
+                "showMaskOnHover": false,
                 // Fix for starting with negative decimal
                 "onKeyDown": function(event, buffer, _caretPos, _opts) {
                     var currentValue = buffer.length == 2 ? buffer[0] : "";
@@ -494,7 +519,7 @@
             });
             $(this).datetimepicker({
                 locale: "pt-br",
-                format: 'YY',
+                format: "YY",
                 useCurrent: false
             });
         });
@@ -523,7 +548,7 @@
             });
             $(this).datetimepicker({
                 locale: "pt-br",
-                format: 'YY',
+                format: "YY",
                 useCurrent: false,
                 minDate: moment()
             });
@@ -565,7 +590,7 @@
             });
             $(this).datetimepicker({
                 locale: "pt-br",
-                format: 'MM',
+                format: "MM",
                 useCurrent: false
             });
         });
@@ -686,7 +711,7 @@
             });
         });
         // Apply mask on page load
-        $('input[type=text]').each(function(){
+        $("input[type=text]").each(function(){
             this.focus({
                 preventScroll: true
             });
