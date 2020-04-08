@@ -71,6 +71,7 @@ As máscaras disponíveis são:
 
 Bônus:
 - first-disabled
+
 Adicione essa classe a um select para desativar sua primeira opção (créditos a [fpviviani](https://github.com/fpviviani)).
 
 ## Atualização
