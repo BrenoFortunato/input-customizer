@@ -710,6 +710,10 @@
                 }
             });
         });
+        // Disable first option in select
+        $(document).on("focus", ".first-disabled", function(){
+            $(this).find("option:first").attr('disabled', true);
+        });
         // Apply mask on page load
         $("input[type=text]").each(function(){
             this.focus({
