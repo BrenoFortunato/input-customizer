@@ -1,4 +1,4 @@
-{{-- Input Customizer v1.0.27 --}}
+{{-- Input Customizer v1.0.28 --}}
  
 @push("css")
     {{-- Datetimepicker v4.17.47 --}}
@@ -46,7 +46,10 @@
     <script type="text/javascript">
         // Money
         $(".money-mask").each(function(){
-            $(this).val($(this).val().replace(".",","));
+            let value = $(this).val();
+            if (value.indexOf(",")===-1) {
+                $(this).val(value.replace(".",","));
+            }
         });
         $(document).on("focus", ".money-mask:not([readonly])", function(){
             $(this).attr("maxLength", 24);
@@ -715,11 +718,13 @@
             $(this).find("option:first").attr('disabled', true);
         });
         // Apply mask on page load
-        $("input[type=text]").each(function(){
-            this.focus({
-                preventScroll: true
+        $(window).on("pageshow", function() {
+            $("input[class$='-mask']").each(function(){
+                this.focus({
+                    preventScroll: true
+                });
+                this.blur();
             });
-            this.blur();
         });
     </script>
 @endpush
