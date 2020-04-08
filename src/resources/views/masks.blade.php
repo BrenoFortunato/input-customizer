@@ -1,4 +1,4 @@
-{{-- Input Customizer v1.0.23 --}}
+{{-- Input Customizer v1.0.26 --}}
  
 @push("css")
     {{-- Datetimepicker v4.17.47 --}}

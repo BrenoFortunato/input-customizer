@@ -60,14 +60,18 @@ As máscaras disponíveis são:
 - date-blockpast-mask
 - time-mask
 - time-blockpast-mask
-- two-digits-year-mask **--new--**
-- two-digits-year-blockpast-mask **--new--**
-- two-digits-month-mask **--new--**
+- two-digits-year-mask
+- two-digits-year-blockpast-mask
+- two-digits-month-mask
 - duration-mask
 - time-interval-mask
 - vehicle-plate-mask
 - zipcode-mask
 - state-mask
+
+Bônus:
+- first-disabled
+Adicione essa classe a um select para desativar sua primeira opção (créditos a [fpviviani](https://github.com/fpviviani)).
 
 ## Atualização
 Caso você já tenha adicionado este pacote anteriormente, você deverá forçar a atualização dos assets para ter acesso às novas máscaras:
