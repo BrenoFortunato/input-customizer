@@ -1,4 +1,4 @@
-{{-- Input Customizer v1.0.28 --}}
+{{-- Input Customizer v1.0.29 --}}
  
 @push("css")
     {{-- Datetimepicker v4.17.47 --}}
@@ -325,7 +325,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -354,7 +354,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -385,7 +385,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -414,7 +414,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -445,7 +445,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -474,7 +474,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -505,7 +505,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -534,7 +534,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -564,7 +564,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -605,7 +605,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
