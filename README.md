@@ -164,10 +164,10 @@ As máscaras disponíveis são:
 	```
 
 ## Bônus
-Adicione essa classe a um select para desativar sua primeira opção:
+Adicione a classe abaixo a um select para desativar a primeira opção:
 - first-disabled
 
-Créditos a [fpviviani](https://github.com/fpviviani)).
+Créditos a [fpviviani](https://github.com/fpviviani).
 
 ## Atualização
 Caso você já tenha adicionado este pacote anteriormente, você deverá forçar a atualização dos assets para ter acesso às novas máscaras:
