@@ -52,8 +52,10 @@ As máscaras disponíveis são:
 - integer-mask
 	> 999.999
 - zero-to-ten-mask
+	```
 	> 0
 	> 10
+	```
 - percentage-mask
 	> 0
 	> 100
