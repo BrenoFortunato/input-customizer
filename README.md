@@ -42,6 +42,7 @@ Ou em blade:
 {!! Form::text('price', null, ['class' => 'form-control money-mask']) !!}
 ```
 
+## Máscaras
 As máscaras disponíveis são:
 - money-mask
 	```
@@ -162,10 +163,11 @@ As máscaras disponíveis são:
 	> AA
 	```
 
-Bônus:
+## Bônus
+Adicione essa classe a um select para desativar sua primeira opção:
 - first-disabled
 
-Adicione essa classe a um select para desativar sua primeira opção (créditos a [fpviviani](https://github.com/fpviviani)).
+Créditos a [fpviviani](https://github.com/fpviviani)).
 
 ## Atualização
 Caso você já tenha adicionado este pacote anteriormente, você deverá forçar a atualização dos assets para ter acesso às novas máscaras:
