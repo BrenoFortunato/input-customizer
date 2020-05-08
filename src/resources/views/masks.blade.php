@@ -1,4 +1,4 @@
-{{-- Input Customizer v1.0.30 --}}
+{{-- Input Customizer v1.0.31 --}}
  
 @push("css")
     {{-- Datetimepicker v4.17.47 --}}
@@ -261,6 +261,54 @@
                         Swal.fire({
                             title: "Valor inválido!",
                             html: "Informe um CPF no formato <u>999.999.999-99</u> ou um CNPJ no formato <u>99.999.999/9999-99</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+            });
+        });
+        // CPF
+        $(document).on("focus", ".cpf-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["999.999.999-99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um CPF no formato <u>999.999.999-99</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+            });
+        });
+        // CNPJ
+        $(document).on("focus", ".cnpj-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99.999.999/9999-99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um CNPJ no formato <u>99.999.999/9999-99</u>.",
                             icon: "error",
                             showCloseButton: true,
                             showConfirmButton: false

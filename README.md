@@ -15,17 +15,17 @@ php artisan vendor:publish --provider="BrenoFortunato\InputCustomizer\InputCusto
 Na view onde deseja utilizar as máscaras, por exemplo **layouts/app.blade.php**, adicione ao final da tag **head**:
 ```html
 <head>
-    ...
-    @include('vendor.input-customizer.masks')
-    @stack('css')
+	...
+	@include('vendor.input-customizer.masks')
+	@stack('css')
 </head>
 ```
 
 E, ao final da tag **body**:
 ```html
 <body>
-    ...
-    @stack('scripts')
+	...
+	@stack('scripts')
 </body>
 ```
 
@@ -44,35 +44,73 @@ Ou em blade:
 
 As máscaras disponíveis são:
 - money-mask
+	> R$ 99.999.999.999.999,99
 - float-mask
+	> 999.999,99
 - double-mask
+	> 99.999.999.999.999,99
 - integer-mask
+	> 999.999
 - zero-to-ten-mask
+	> 0
+	> 10
 - percentage-mask
+	> 0
+	> 100
 - latitude-mask
+	> -90
+	> 90
 - longitude-mask
+	> -180
+	> 180
 - document-mask
+	> 999.999.999-99
+	> 99.999.999/9999-99
+- cpf-mask
+	> 999.999.999-99
+- cnpj-mask
+	> 99.999.999/9999-99
 - national-id-mask
+	> 99.999.999-9
+	> AA-99.999.999
 - phone-mask
+	> (99) 9999-9999
+	> (99) 99999-9999
 - datetime-mask
+	> 99/99/9999 99:99
 - datetime-blockpast-mask
+	> 99/99/9999 99:99 (a partir da data atual)
 - date-mask
+	> 99/99/9999
 - date-blockpast-mask
+	> 99/99/9999 (a partir da data atual)
 - time-mask
+	> 99:99
 - time-blockpast-mask
+	> 99:99 (a partir da hora atual)
 - two-digits-year-mask
+	> 99
 - two-digits-year-blockpast-mask
+	> 99 (a partir do ano atual)
 - two-digits-month-mask
+	> 1
+	> 12
 - duration-mask
+	> 99:99:99
 - time-interval-mask
+	> 99:99
+	> 99:99; 99:99
+	> 99:99; 99:99; 99:99; ...
 - vehicle-plate-mask
+	> AAA-9999
 - zipcode-mask
+	> 99999-999
 - state-mask
+	> AA
 
 Bônus:
 - first-disabled
-
-Adicione essa classe a um select para desativar sua primeira opção (créditos a [fpviviani](https://github.com/fpviviani)).
+	> Adicione essa classe a um select para desativar sua primeira opção (créditos a [fpviviani](https://github.com/fpviviani)).
 
 ## Atualização
 Caso você já tenha adicionado este pacote anteriormente, você deverá forçar a atualização dos assets para ter acesso às novas máscaras:
@@ -85,9 +123,9 @@ Este comando sobrescreverá o arquivo em **resources/views/vendor/input-customiz
 Para adicionar suas próprias máscaras, na view onde foi realizada a configuração inicial (no exemplo, **layouts/app.blade.php**), faça uso do seguinte template:
 ```javascript
 <script type="text/javascript">
-    $(document).on("focus", ".name-mask", function(){
-        $(this).inputmask("replace-with-type", {options});
-    });
+	$(document).on("focus", ".name-mask", function(){
+		$(this).inputmask("replace-with-type", {options});
+	});
 </script>
 ```
 Para mais instruções, leia a seguinte documentação: [RobinHerbots/Inputmask](https://github.com/RobinHerbots/Inputmask).
