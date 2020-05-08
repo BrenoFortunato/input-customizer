@@ -44,129 +44,128 @@ Ou em blade:
 
 As máscaras disponíveis são:
 - money-mask
-	```php
+	```
 	> R$ 99.999.999.999.999,99
 	```
 - float-mask
-	```php
+	```
 	> 999.999,99
 	```
 - double-mask
-	```php
+	```
 	> 99.999.999.999.999,99
 	```
 - integer-mask
-	```php
+	```
 	> 999.999
 	```
 - zero-to-ten-mask
-	```php
+	```
 	> 0
 	> 10
 	```
 - percentage-mask
-	```php
+	```
 	> 0
 	> 100
 	```
 - latitude-mask
-	```php
+	```
 	> -90
 	> 90
 	```
 - longitude-mask
-	```php
+	```
 	> -180
 	> 180
 	```
 - document-mask
-	```php
+	```
 	> 999.999.999-99
 	> 99.999.999/9999-99
 	```
 - cpf-mask
-	```php
+	```
 	> 999.999.999-99
 	```
 - cnpj-mask
-	```php
+	```
 	> 99.999.999/9999-99
 	```
 - national-id-mask
-	```php
+	```
 	> 99.999.999-9
 	> AA-99.999.999
 	```
 - phone-mask
-	```php
+	```
 	> (99) 9999-9999
 	> (99) 99999-9999
 	```
 - datetime-mask
-	```php
+	```
 	> 99/99/9999 99:99
 	```
 - datetime-blockpast-mask
-	```php
+	```
 	> 99/99/9999 99:99 (a partir da data atual)
 	```
 - date-mask
-	```php
+	```
 	> 99/99/9999
 	```
 - date-blockpast-mask
-	```php
+	```
 	> 99/99/9999 (a partir da data atual)
 	```
 - time-mask
-	```php
+	```
 	> 99:99
 	```
 - time-blockpast-mask
-	```php
+	```
 	> 99:99 (a partir da hora atual)
 	```
 - two-digits-year-mask
-	```php
+	```
 	> 99
 	```
 - two-digits-year-blockpast-mask
-	```php
+	```
 	> 99 (a partir do ano atual)
 	```
 - two-digits-month-mask
-	```php
+	```
 	> 1
 	> 12
 	```
 - duration-mask
-	```php
+	```
 	> 99:99:99
 	```
 - time-interval-mask
-	```php
+	```
 	> 99:99
 	> 99:99; 99:99
 	> 99:99; 99:99; 99:99; ...
 	```
 - vehicle-plate-mask
-	```php
+	```
 	> AAA-9999
 	```
 - zipcode-mask
-	```php
+	```
 	> 99999-999
 	```
 - state-mask
-	```php
+	```
 	> AA
 	```
 
 Bônus:
 - first-disabled
-	```php
-	> Adicione essa classe a um select para desativar sua primeira opção (créditos a [fpviviani](https://github.com/fpviviani)).
-	```
+
+Adicione essa classe a um select para desativar sua primeira opção (créditos a [fpviviani](https://github.com/fpviviani)).
 
 ## Atualização
 Caso você já tenha adicionado este pacote anteriormente, você deverá forçar a atualização dos assets para ter acesso às novas máscaras:
