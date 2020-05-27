@@ -1,4 +1,4 @@
-{{-- Input Customizer v1.0.23 --}}
+{{-- Input Customizer v1.0.37 --}}
  
 @push("css")
     {{-- Datetimepicker v4.17.47 --}}
@@ -46,7 +46,10 @@
     <script type="text/javascript">
         // Money
         $(".money-mask").each(function(){
-            $(this).val($(this).val().replace(".",","));
+            let value = $(this).val();
+            if (value.indexOf(",")===-1) {
+                $(this).val(value.replace(".",","));
+            }
         });
         $(document).on("focus", ".money-mask:not([readonly])", function(){
             $(this).attr("maxLength", 24);
@@ -258,6 +261,54 @@
                         Swal.fire({
                             title: "Valor inválido!",
                             html: "Informe um CPF no formato <u>999.999.999-99</u> ou um CNPJ no formato <u>99.999.999/9999-99</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+            });
+        });
+        // CPF
+        $(document).on("focus", ".cpf-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["999.999.999-99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um CPF no formato <u>999.999.999-99</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+            });
+        });
+        // CNPJ
+        $(document).on("focus", ".cnpj-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99.999.999/9999-99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um CNPJ no formato <u>99.999.999/9999-99</u>.",
                             icon: "error",
                             showCloseButton: true,
                             showConfirmButton: false
@@ -710,12 +761,18 @@
                 }
             });
         });
+        // Disable first option in select
+        $(document).on("focus", ".first-disabled", function(){
+            $(this).find("option:first").attr('disabled', true);
+        });
         // Apply mask on page load
-        $("input[type=text]").each(function(){
-            this.focus({
-                preventScroll: true
+        $(window).on("pageshow", function() {
+            $("input[class$='-mask']").each(function(){
+                this.focus({
+                    preventScroll: true
+                });
+                this.blur();
             });
-            this.blur();
         });
     </script>
 @endpush
