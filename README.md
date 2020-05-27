@@ -135,6 +135,14 @@ As máscaras disponíveis são:
 	```
 	> 99 (a partir do ano atual)
 	```
+- month-year-mask
+	```
+	> 99/99
+	```
+- month-year-blockpast-mask
+	```
+	> 99/99 (a partir da data atual)
+	```
 - two-digits-month-mask
 	```
 	> 1
