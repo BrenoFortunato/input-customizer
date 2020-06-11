@@ -170,12 +170,21 @@ As máscaras disponíveis são:
 	```
 	> AA
 	```
+- credit-card-mask
+	```
+	> 9999-999999-9999
+	> 9999-999999-99999
+	> 9999-9999-9999-9999
+	```
+- card-cvv-mask
+	```
+	> 999
+	> 9999
+	```
 
 ## Bônus
 Adicione a classe abaixo a um select para desativar a primeira opção:
 - first-disabled
-
-Créditos a [fpviviani](https://github.com/fpviviani).
 
 ## Atualização
 Caso você já tenha adicionado este pacote anteriormente, você deverá forçar a atualização dos assets para ter acesso às novas máscaras:
@@ -205,7 +214,8 @@ Na view onde foi realizada a configuração inicial (no exemplo, **layouts/app.b
 
 Além disso, certifique-se de ter incluído o **jQuery v3.2.1**, ou superior, ao body da view supracitada.
 
+## Agradecimentos
+Um muito obrigado a [fpviviani](https://github.com/fpviviani) pelo desenvolvimento de algumas máscaras.
 
 ## Licença
-
 The MIT License (MIT). [Clique aqui](https://github.com/BrenoFortunato/input-customizer/blob/master/LICENSE) para maiores informações.

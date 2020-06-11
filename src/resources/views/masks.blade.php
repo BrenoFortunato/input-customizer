@@ -1,5 +1,3 @@
-{{-- Input Customizer v1.0.42 --}}
- 
 @push("css")
     {{-- Datetimepicker v4.17.47 --}}
     <link rel="stylesheet" href="{{ asset('vendor/input-customizer/css/bootstrap-datetimepicker.min.css') }}">
@@ -845,7 +843,7 @@
                 }
             });
         });
-        // Credit Card Cvv
+        // Credit Card CVV
         $(document).on("focus", ".card-cvv-mask", function(){
             $(this).inputmask("text", {
                 "mask": ["999", "9999"],
