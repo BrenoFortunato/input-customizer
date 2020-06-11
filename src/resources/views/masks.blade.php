@@ -821,6 +821,54 @@
                 }
             });
         });
+        // Credit Card Number
+        $(document).on("focus", ".credit-card-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["9999-999999-9999", "9999-999999-99999", "9999-9999-9999-9999"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": true,
+                "autoUnmask": true,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um número no formato <u>9999-999999-9999</u>, <u>9999-999999-99999</u> ou <u>9999-9999-9999-9999</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+        });
+        // Credit Card Cvv
+        $(document).on("focus", ".card-cvv-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["999", "9999"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": true,
+                "autoUnmask": true,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um código no formato <u>999</u>, ou <u>9999</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+        });
         // Disable first option in select
         $(document).on("focus", ".first-disabled", function(){
             $(this).find("option:first").attr('disabled', true);
