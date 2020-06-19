@@ -111,6 +111,10 @@ As máscaras disponíveis são:
 	```
 	> 99/99/9999 99:99 (a partir da data atual)
 	```
+- datetime-blockfuture-mask
+	```
+	> 99/99/9999 99:99 (até a data atual)
+	```
 - date-mask
 	```
 	> 99/99/9999
@@ -118,6 +122,10 @@ As máscaras disponíveis são:
 - date-blockpast-mask
 	```
 	> 99/99/9999 (a partir da data atual)
+	```
+- date-blockfuture-mask
+	```
+	> 99/99/9999 (até a data atual)
 	```
 - time-mask
 	```
@@ -127,6 +135,10 @@ As máscaras disponíveis são:
 	```
 	> 99:99 (a partir da hora atual)
 	```
+- time-blockfuture-mask
+	```
+	> 99:99 (até a hora atual)
+	```
 - two-digits-year-mask
 	```
 	> 99
@@ -135,6 +147,10 @@ As máscaras disponíveis são:
 	```
 	> 99 (a partir do ano atual)
 	```
+- two-digits-year-blockfuture-mask
+	```
+	> 99 (até o ano atual)
+	```
 - month-year-mask
 	```
 	> 99/99
@@ -142,6 +158,10 @@ As máscaras disponíveis são:
 - month-year-blockpast-mask
 	```
 	> 99/99 (a partir da data atual)
+	```
+- month-year-blockfuture-mask
+	```
+	> 99/99 (até a data atual)
 	```
 - two-digits-month-mask
 	```

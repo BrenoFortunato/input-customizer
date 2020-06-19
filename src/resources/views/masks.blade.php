@@ -423,6 +423,36 @@
                 minDate: moment()
             });
         });
+        // Datetime Blockfuture
+        $(document).on("focus", ".datetime-blockfuture-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99/99/9999 99:99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe uma data e hora, anterior ao momento atual, no formato <u>dd/mm/aaaa hh:mm</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            $(this).datetimepicker({
+                locale: "pt-br",
+                format: "DD/MM/YYYY HH:mm",
+                useCurrent: false,
+                maxDate: moment()
+            });
+        });
         // Date
         $(document).on("focus", ".date-mask", function(){
             $(this).inputmask("text", {
@@ -481,6 +511,36 @@
                 useCurrent: false,
                 disabledDates: [moment()],
                 minDate: moment()
+            });
+        });
+        // Date Blockfuture
+        $(document).on("focus", ".date-blockfuture-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99/99/9999"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe uma data, anterior à atual, no formato <u>dd/mm/aaaa</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            $(this).datetimepicker({
+                locale: "pt-br",
+                format: "DD/MM/YYYY",
+                useCurrent: false,
+                maxDate: moment()
             });
         });
         // Time
@@ -543,6 +603,36 @@
                 minDate: moment()
             });
         });
+        // Time Blockfuture
+        $(document).on("focus", ".time-blockfuture-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99:99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe uma hora, anterior à atual, no formato <u>hh:mm</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            $(this).datetimepicker({
+                locale: "pt-br",
+                format: "HH:mm",
+                useCurrent: false,
+                maxDate: moment()
+            });
+        });
         // Two Digits Year
         $(document).on("focus", ".two-digits-year-mask", function(){
             $(this).inputmask("text", {
@@ -587,7 +677,7 @@
                         this.value = "";
                         Swal.fire({
                             title: "Valor inválido!",
-                            html: "Informe um ano no formato <u>aa</u>.",
+                            html: "Informe um ano, posterior ao atual, no formato <u>aa</u>.",
                             icon: "error",
                             showCloseButton: true,
                             showConfirmButton: false
@@ -600,6 +690,36 @@
                 format: "YY",
                 useCurrent: false,
                 minDate: moment()
+            });
+        });
+        // Two Digits Year Blockfuture
+        $(document).on("focus", ".two-digits-year-blockfuture-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um ano, anterior ao atual, no formato <u>aa</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            $(this).datetimepicker({
+                locale: "pt-br",
+                format: "YY",
+                useCurrent: false,
+                maxDate: moment()
             });
         });
         // Two Digits Month and Year
@@ -660,6 +780,36 @@
                 useCurrent: false,
                 disabledDates: [moment()],
                 minDate: moment()
+            });
+        });
+        // Two Digits Month and Year Blockfuture
+        $(document).on("focus", ".month-year-blockfuture-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99/99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe uma data, anterior à atual, no formato <u>mm/aa</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            $(this).datetimepicker({
+                locale: "pt-br",
+                format: "MM/YY",
+                useCurrent: false,
+                maxDate: moment()
             });
         });
         // Two Digits Month
