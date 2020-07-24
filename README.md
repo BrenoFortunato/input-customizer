@@ -103,41 +103,50 @@ As máscaras disponíveis são:
 	> (99) 9999-9999
 	> (99) 99999-9999
 	```
-- datetime-mask
+- datetime-mask 
 	```
 	> 99/99/9999 99:99
+	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD HH:mm:00
 	```
 - datetime-blockpast-mask
 	```
 	> 99/99/9999 99:99 (a partir da data atual)
+	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD HH:mm:00
 	```
 - datetime-blockfuture-mask
 	```
 	> 99/99/9999 99:99 (até a data atual)
+	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD HH:mm:00
 	```
 - date-mask
 	```
 	> 99/99/9999
+	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD 00:00:00
 	```
 - date-blockpast-mask
 	```
 	> 99/99/9999 (a partir da data atual)
+	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD 00:00:00
 	```
 - date-blockfuture-mask
 	```
 	> 99/99/9999 (até a data atual)
+	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD 00:00:00
 	```
 - time-mask
 	```
 	> 99:99
+	> Ao enviar o formulário, será automaticamente completado com a data atual no formato YYYY-MM-DD HH:mm:00
 	```
 - time-blockpast-mask
 	```
 	> 99:99 (a partir da hora atual)
+	> Ao enviar o formulário, será automaticamente completado com a data atual no formato YYYY-MM-DD HH:mm:00
 	```
 - time-blockfuture-mask
 	```
 	> 99:99 (até a hora atual)
+	> Ao enviar o formulário, será automaticamente completado com a data atual no formato YYYY-MM-DD HH:mm:00
 	```
 - two-digits-year-mask
 	```

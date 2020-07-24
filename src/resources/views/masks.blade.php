@@ -371,7 +371,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -383,6 +383,15 @@
                             showCloseButton: true,
                             showConfirmButton: false
                         });
+                    }
+                },
+                "onUnMask": function(maskedValue, unmaskedValue) {
+                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    return (dbFormat==="Invalid date")? null : dbFormat;
+                },
+                "onBeforeMask": function (value, opts) {
+                    if (value.includes("-")) {
+                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY HH:mm');
                     }
                 }
             });
@@ -400,7 +409,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -412,6 +421,15 @@
                             showCloseButton: true,
                             showConfirmButton: false
                         });
+                    }
+                },
+                "onUnMask": function(maskedValue, unmaskedValue) {
+                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    return (dbFormat==="Invalid date")? null : dbFormat;
+                },
+                "onBeforeMask": function (value, opts) {
+                    if (value.includes("-")) {
+                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY HH:mm');
                     }
                 }
             });
@@ -431,7 +449,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -443,6 +461,15 @@
                             showCloseButton: true,
                             showConfirmButton: false
                         });
+                    }
+                },
+                "onUnMask": function(maskedValue, unmaskedValue) {
+                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    return (dbFormat==="Invalid date")? null : dbFormat;
+                },
+                "onBeforeMask": function (value, opts) {
+                    if (value.includes("-")) {
+                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY HH:mm');
                     }
                 }
             });
@@ -461,7 +488,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -473,6 +500,15 @@
                             showCloseButton: true,
                             showConfirmButton: false
                         });
+                    }
+                },
+                "onUnMask": function(maskedValue, unmaskedValue) {
+                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY', true).format('YYYY-MM-DD HH:mm:ss');
+                    return (dbFormat==="Invalid date")? null : dbFormat;
+                },
+                "onBeforeMask": function (value, opts) {
+                    if (value.includes("-")) {
+                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY');
                     }
                 }
             });
@@ -490,7 +526,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -502,6 +538,15 @@
                             showCloseButton: true,
                             showConfirmButton: false
                         });
+                    }
+                },
+                "onUnMask": function(maskedValue, unmaskedValue) {
+                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY', true).format('YYYY-MM-DD HH:mm:ss');
+                    return (dbFormat==="Invalid date")? null : dbFormat;
+                },
+                "onBeforeMask": function (value, opts) {
+                    if (value.includes("-")) {
+                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY');
                     }
                 }
             });
@@ -521,7 +566,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -533,6 +578,15 @@
                             showCloseButton: true,
                             showConfirmButton: false
                         });
+                    }
+                },
+                "onUnMask": function(maskedValue, unmaskedValue) {
+                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY', true).format('YYYY-MM-DD HH:mm:ss');
+                    return (dbFormat==="Invalid date")? null : dbFormat;
+                },
+                "onBeforeMask": function (value, opts) {
+                    if (value.includes("-")) {
+                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY');
                     }
                 }
             });
@@ -551,7 +605,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -563,6 +617,15 @@
                             showCloseButton: true,
                             showConfirmButton: false
                         });
+                    }
+                },
+                "onUnMask": function(maskedValue, unmaskedValue) {
+                    let dbFormat = moment(maskedValue, 'HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    return (dbFormat==="Invalid date")? null : dbFormat;
+                },
+                "onBeforeMask": function (value, opts) {
+                    if (value.includes("-")) {
+                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm');
                     }
                 }
             });
@@ -580,7 +643,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
@@ -592,6 +655,15 @@
                             showCloseButton: true,
                             showConfirmButton: false
                         });
+                    }
+                },
+                "onUnMask": function(maskedValue, unmaskedValue) {
+                    let dbFormat = moment(maskedValue, 'HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    return (dbFormat==="Invalid date")? null : dbFormat;
+                },
+                "onBeforeMask": function (value, opts) {
+                    if (value.includes("-")) {
+                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm');
                     }
                 }
             });
@@ -623,6 +695,15 @@
                             showCloseButton: true,
                             showConfirmButton: false
                         });
+                    }
+                },
+                "onUnMask": function(maskedValue, unmaskedValue) {
+                    let dbFormat = moment(maskedValue, 'HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    return (dbFormat==="Invalid date")? null : dbFormat;
+                },
+                "onBeforeMask": function (value, opts) {
+                    if (value.includes("-")) {
+                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm');
                     }
                 }
             });
