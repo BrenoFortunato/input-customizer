@@ -1104,12 +1104,14 @@
         });
         // Apply mask on page load
         $(window).on("pageshow", function() {
-            $("input[class$='-mask']").each(function(){
-                this.focus({
-                    preventScroll: true
+            setTimeout(function(){
+                $("input[class$='-mask']").each(function(){
+                    this.focus({
+                        preventScroll: true
+                    });
+                    this.blur();
                 });
-                this.blur();
-            });
+            }, 250);
         });
     </script>
 @endpush
