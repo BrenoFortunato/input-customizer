@@ -22,6 +22,18 @@
         .swal2-close:focus {
             outline: none;
         }
+        .two-digits-month-mask + div thead {
+            display: none;
+        }
+        .two-digits-day-mask + div thead {
+            display: none;
+        }
+        .two-digits-day-mask + div tbody > tr:last-child {
+            display: none;
+        }
+        .two-digits-day-mask + div td.today:before {
+            display: none;
+        }
     </style>
 @endpush
 
@@ -891,6 +903,47 @@
                 format: "MM/YY",
                 useCurrent: false,
                 maxDate: moment()
+            });
+        });
+        // Two Digits Day
+        $(document).on("focus", ".two-digits-day-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um dia no formato <u>dd</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+                "oncomplete": function() {
+                    if (this.value < 1 || this.value > 31) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe o número do dia, de 1 a 31.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+            });
+            $(this).datetimepicker({
+                locale: "pt-br",
+                format: "DD",
+                useCurrent: false,
             });
         });
         // Two Digits Month

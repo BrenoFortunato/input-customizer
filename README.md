@@ -172,6 +172,11 @@ As máscaras disponíveis são:
 	```
 	> 99/99 (até a data atual)
 	```
+- two-digits-day-mask
+	```
+	> 1
+	> 31
+	```
 - two-digits-month-mask
 	```
 	> 1
