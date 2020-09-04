@@ -940,11 +940,6 @@
                     }
                 },
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "DD",
-                useCurrent: false,
-            });
         });
         // Two Digits Month
         $(document).on("focus", ".two-digits-month-mask", function(){
