@@ -916,11 +916,11 @@
                 "removeMaskOnSubmit": false,
                 "autoUnmask": false,
                 "onincomplete": function() {
-                    if (this.value) {
+                    if (this.value && (this.value < 1 || this.value > 31)) {
                         this.value = "";
                         Swal.fire({
                             title: "Valor inválido!",
-                            html: "Informe um dia no formato <u>dd</u>.",
+                            html: "Informe o número do dia, de 1 a 31.",
                             icon: "error",
                             showCloseButton: true,
                             showConfirmButton: false
@@ -939,6 +939,18 @@
                         });
                     }
                 },
+                "onBeforeWrite": function (event, buffer) {
+                    if (event.type === "blur") {
+                        if (buffer[1] == "_") {
+                            buffer[1] = buffer[0];
+                            buffer[0] = "0";
+                            return {
+                                refreshFromBuffer: true,
+                                buffer: buffer
+                            };
+                        }
+                    }
+                }
             });
         });
         // Two Digits Month
