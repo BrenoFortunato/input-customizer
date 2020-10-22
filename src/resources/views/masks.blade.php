@@ -1027,7 +1027,7 @@
         // Time Interval
         $(document).on("focus", ".time-interval-mask", function(){
             $(this).inputmask("text", {
-                "mask": ["99:99[; ]"],
+                "mask": ["99:99 - 99:99[; ]"],
                 "repeat": "*",
                 "greedy": false,
                 "clearMaskOnLostFocus": true,
