@@ -695,7 +695,7 @@
                 "showMaskOnHover": false,
                 "showMaskOnFocus": false,
                 "rightAlign": false,
-                "removeMaskOnSubmit": false,
+                "removeMaskOnSubmit": true,
                 "autoUnmask": false,
                 "onincomplete": function() {
                     if (this.value) {
