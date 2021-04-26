@@ -16,8 +16,8 @@ Na view onde deseja utilizar as máscaras, por exemplo **layouts/app.blade.php**
 ```html
 <head>
 	...
-	@include('vendor.input-customizer.masks')
-	@stack('css')
+	@include("vendor.input-customizer.masks")
+	@stack("css")
 </head>
 ```
 
@@ -25,7 +25,7 @@ E, ao final da tag **body**:
 ```html
 <body>
 	...
-	@stack('scripts')
+	@stack("js")
 </body>
 ```
 

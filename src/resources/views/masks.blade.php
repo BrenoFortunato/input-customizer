@@ -5,6 +5,7 @@
     {{-- SweetAlert2 v9.8.2 --}}
     <link rel="stylesheet" href="{{ asset('vendor/input-customizer/css/sweetalert2.min.css') }}">
 
+    {{-- Masks --}}
     <style type="text/css">
         .swal2-popup {
             font-size: 1.6rem;
@@ -37,7 +38,7 @@
     </style>
 @endpush
 
-@push("scripts")
+@push("js")
     {{-- Moment v2.24.0 --}}
     <script src="{{ asset('vendor/input-customizer/js/moment-with-locales.min.js') }}"></script>
     
@@ -53,6 +54,7 @@
     {{-- SweetAlert2 v9.8.2 --}}
     <script src="{{ asset('vendor/input-customizer/js/sweetalert2.min.js') }}"></script>
 
+    {{-- Masks --}}
     <script type="text/javascript">
         // Money
         $(".money-mask").each(function(){
