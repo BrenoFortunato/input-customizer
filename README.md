@@ -2,9 +2,10 @@
 Contém um conjunto de máscaras para personalizar inputs de texto.
 
 ## Instalação
+Você está lendo instruções para Boostrap 3, para ver as instruções para Bootstrap 4 [clique aqui](https://github.com/BrenoFortunato/input-customizer/tree/master_bootstrap4).
 Para instalar, basta utilizar o comando abaixo:
 ```php
-composer require brenofortunato/input-customizer
+composer require brenofortunato/input-customizer:dev-master_bootstrap3
 ```
 Em seguida, publique os assets:
 ```php
