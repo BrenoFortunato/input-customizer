@@ -1,6 +1,6 @@
 @push("css")
-    {{-- Datetimepicker v4.17.47 --}}
-    <link rel="stylesheet" href="{{ asset('vendor/input-customizer/css/bootstrap-datetimepicker.min.css') }}">
+    {{-- DateRangePicker v3.14.1 --}}
+    <link rel="stylesheet" href="{{ asset('vendor/input-customizer/css/daterangepicker.min.css') }}">
 
     {{-- SweetAlert2 v9.8.2 --}}
     <link rel="stylesheet" href="{{ asset('vendor/input-customizer/css/sweetalert2.min.css') }}">
@@ -23,17 +23,8 @@
         .swal2-close:focus {
             outline: none;
         }
-        .two-digits-month-mask + div thead {
-            display: none;
-        }
-        .two-digits-day-mask + div thead {
-            display: none;
-        }
-        .two-digits-day-mask + div tbody > tr:last-child {
-            display: none;
-        }
-        .two-digits-day-mask + div td.today:before {
-            display: none;
+        .drp-calendar {
+            width: 300px;
         }
     </style>
 @endpush
@@ -42,8 +33,8 @@
     {{-- Moment v2.24.0 --}}
     <script src="{{ asset('vendor/input-customizer/js/moment-with-locales.min.js') }}"></script>
     
-    {{-- Datetimepicker v4.17.47 --}}
-    <script src="{{ asset('vendor/input-customizer/js/bootstrap-datetimepicker.min.js') }}"></script>
+    {{-- DateRangePicker v3.14.1 --}}
+    <script src="{{ asset('vendor/input-customizer/js/daterangepicker.min.js') }}"></script>
 
     {{-- Inputmask v4.0.3-beta.1 --}}
     <script src="{{ asset('vendor/input-customizer/js/jquery.inputmask.bundle.js') }}"></script>
@@ -56,6 +47,41 @@
 
     {{-- Masks --}}
     <script type="text/javascript">
+        // Control Variables
+        let dateRangePickerLocale = {
+            firstDay: 0,
+            separator: " - ",
+            applyLabel: "Aplicar",
+            cancelLabel: "Cancelar",
+            fromLabel: "De",
+            toLabel: "Até",
+            customRangeLabel: "Personalizado",
+            weekLabel: "S",
+            daysOfWeek: [
+                "Dom",
+                "2ª",
+                "3ª",
+                "4ª",
+                "5ª",
+                "6ª",
+                "Sab"
+            ],
+            monthNames: [
+                "Janeiro",
+                "Fevereiro",
+                "Março",
+                "Abril",
+                "Maio",
+                "Junho",
+                "Julho",
+                "Agosto",
+                "Setembro",
+                "Outubro",
+                "Novembro",
+                "Dezembro"
+            ],
+        };
+        let ignoreOnInitialFocus = ".datetime-mask, .datetime-blockpast-mask, .datetime-blockfuture-mask, .date-mask, .date-blockpast-mask, .date-blockfuture-mask, .time-mask, .time-blockpast-mask, .time-blockfuture-mask, .two-digits-month-year-mask, .two-digits-month-year-blockpast-mask, .two-digits-month-year-blockfuture-mask, .duration-mask";
         // Money
         $(".money-mask").each(function(){
             let value = $(this).val();
@@ -400,19 +426,25 @@
                     }
                 },
                 "onUnMask": function(maskedValue, unmaskedValue) {
-                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    let dbFormat = moment(maskedValue, "DD/MM/YYYY HH:mm", true).format("YYYY-MM-DD HH:mm:ss");
                     return (dbFormat==="Invalid date")? null : dbFormat;
                 },
                 "onBeforeMask": function (value, opts) {
                     if (value.includes("-")) {
-                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY HH:mm');
+                        return moment(value, "YYYY-MM-DD HH:mm:ss", true).format("DD/MM/YYYY HH:mm");
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "DD/MM/YYYY HH:mm",
-                useCurrent: false,
+            dateRangePickerLocale.format = "DD/MM/YYYY HH:mm";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
             });
         });
         // Datetime Blockpast
@@ -438,21 +470,26 @@
                     }
                 },
                 "onUnMask": function(maskedValue, unmaskedValue) {
-                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    let dbFormat = moment(maskedValue, "DD/MM/YYYY HH:mm", true).format("YYYY-MM-DD HH:mm:ss");
                     return (dbFormat==="Invalid date")? null : dbFormat;
                 },
                 "onBeforeMask": function (value, opts) {
                     if (value.includes("-")) {
-                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY HH:mm');
+                        return moment(value, "YYYY-MM-DD HH:mm:ss", true).format("DD/MM/YYYY HH:mm");
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "DD/MM/YYYY HH:mm",
-                useCurrent: false,
-                disabledDates: [moment()],
-                minDate: moment()
+            dateRangePickerLocale.format = "DD/MM/YYYY HH:mm";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+                minDate: moment(),
             });
         });
         // Datetime Blockfuture
@@ -478,20 +515,26 @@
                     }
                 },
                 "onUnMask": function(maskedValue, unmaskedValue) {
-                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    let dbFormat = moment(maskedValue, "DD/MM/YYYY HH:mm", true).format("YYYY-MM-DD HH:mm:ss");
                     return (dbFormat==="Invalid date")? null : dbFormat;
                 },
                 "onBeforeMask": function (value, opts) {
                     if (value.includes("-")) {
-                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY HH:mm');
+                        return moment(value, "YYYY-MM-DD HH:mm:ss", true).format("DD/MM/YYYY HH:mm");
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "DD/MM/YYYY HH:mm",
-                useCurrent: false,
-                maxDate: moment()
+            dateRangePickerLocale.format = "DD/MM/YYYY HH:mm";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+                maxDate: moment(),
             });
         });
         // Date
@@ -517,19 +560,25 @@
                     }
                 },
                 "onUnMask": function(maskedValue, unmaskedValue) {
-                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY', true).format('YYYY-MM-DD HH:mm:ss');
+                    let dbFormat = moment(maskedValue, "DD/MM/YYYY", true).format("YYYY-MM-DD HH:mm:ss");
                     return (dbFormat==="Invalid date")? null : dbFormat;
                 },
                 "onBeforeMask": function (value, opts) {
                     if (value.includes("-")) {
-                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY');
+                        return moment(value, "YYYY-MM-DD HH:mm:ss", true).format("DD/MM/YYYY");
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "DD/MM/YYYY",
-                useCurrent: false,
+            dateRangePickerLocale.format = "DD/MM/YYYY";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: false,
+                timePicker24Hour: false,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
             });
         });
         // Date Blockpast
@@ -555,21 +604,26 @@
                     }
                 },
                 "onUnMask": function(maskedValue, unmaskedValue) {
-                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY', true).format('YYYY-MM-DD HH:mm:ss');
+                    let dbFormat = moment(maskedValue, "DD/MM/YYYY", true).format("YYYY-MM-DD HH:mm:ss");
                     return (dbFormat==="Invalid date")? null : dbFormat;
                 },
                 "onBeforeMask": function (value, opts) {
                     if (value.includes("-")) {
-                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY');
+                        return moment(value, "YYYY-MM-DD HH:mm:ss", true).format("DD/MM/YYYY");
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "DD/MM/YYYY",
-                useCurrent: false,
-                disabledDates: [moment()],
-                minDate: moment()
+            dateRangePickerLocale.format = "DD/MM/YYYY";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: false,
+                timePicker24Hour: false,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+                minDate: moment(),
             });
         });
         // Date Blockfuture
@@ -595,20 +649,26 @@
                     }
                 },
                 "onUnMask": function(maskedValue, unmaskedValue) {
-                    let dbFormat = moment(maskedValue, 'DD/MM/YYYY', true).format('YYYY-MM-DD HH:mm:ss');
+                    let dbFormat = moment(maskedValue, "DD/MM/YYYY", true).format("YYYY-MM-DD HH:mm:ss");
                     return (dbFormat==="Invalid date")? null : dbFormat;
                 },
                 "onBeforeMask": function (value, opts) {
                     if (value.includes("-")) {
-                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('DD/MM/YYYY');
+                        return moment(value, "YYYY-MM-DD HH:mm:ss", true).format("DD/MM/YYYY");
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "DD/MM/YYYY",
-                useCurrent: false,
-                maxDate: moment()
+            dateRangePickerLocale.format = "DD/MM/YYYY";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: false,
+                timePicker24Hour: false,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+                maxDate: moment(),
             });
         });
         // Time
@@ -634,19 +694,28 @@
                     }
                 },
                 "onUnMask": function(maskedValue, unmaskedValue) {
-                    let dbFormat = moment(maskedValue, 'HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    let dbFormat = moment(maskedValue, "HH:mm", true).format("YYYY-MM-DD HH:mm:ss");
                     return (dbFormat==="Invalid date")? null : dbFormat;
                 },
                 "onBeforeMask": function (value, opts) {
                     if (value.includes("-")) {
-                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm');
+                        return moment(value, "YYYY-MM-DD HH:mm:ss", true).format("HH:mm");
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "HH:mm",
-                useCurrent: false
+            dateRangePickerLocale.format = "HH:mm";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: false,
+                timePicker: true,
+                timePicker24Hour: true,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+            }).on("showCalendar.daterangepicker", (ev, picker) => {
+                $(".calendar-time").css("margin-top", 0);
+                $(".calendar-table").css("visibility", "collapse");
             });
         });
         // Time Blockpast
@@ -672,21 +741,29 @@
                     }
                 },
                 "onUnMask": function(maskedValue, unmaskedValue) {
-                    let dbFormat = moment(maskedValue, 'HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    let dbFormat = moment(maskedValue, "HH:mm", true).format("YYYY-MM-DD HH:mm:ss");
                     return (dbFormat==="Invalid date")? null : dbFormat;
                 },
                 "onBeforeMask": function (value, opts) {
                     if (value.includes("-")) {
-                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm');
+                        return moment(value, "YYYY-MM-DD HH:mm:ss", true).format("HH:mm");
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "HH:mm",
-                useCurrent: false,
-                disabledDates: [moment()],
-                minDate: moment()
+            dateRangePickerLocale.format = "HH:mm";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: false,
+                timePicker: true,
+                timePicker24Hour: true,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+                minDate: moment(),
+            }).on("showCalendar.daterangepicker", (ev, picker) => {
+                $(".calendar-time").css("margin-top", 0);
+                $(".calendar-table").css("visibility", "collapse");
             });
         });
         // Time Blockfuture
@@ -712,199 +789,29 @@
                     }
                 },
                 "onUnMask": function(maskedValue, unmaskedValue) {
-                    let dbFormat = moment(maskedValue, 'HH:mm', true).format('YYYY-MM-DD HH:mm:ss');
+                    let dbFormat = moment(maskedValue, "HH:mm", true).format("YYYY-MM-DD HH:mm:ss");
                     return (dbFormat==="Invalid date")? null : dbFormat;
                 },
                 "onBeforeMask": function (value, opts) {
                     if (value.includes("-")) {
-                        return moment(value, 'YYYY-MM-DD HH:mm:ss', true).format('HH:mm');
+                        return moment(value, "YYYY-MM-DD HH:mm:ss", true).format("HH:mm");
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "HH:mm",
-                useCurrent: false,
-                maxDate: moment()
-            });
-        });
-        // Two Digits Year
-        $(document).on("focus", ".two-digits-year-mask", function(){
-            $(this).inputmask("text", {
-                "mask": ["99"],
-                "clearMaskOnLostFocus": true,
-                "showMaskOnHover": false,
-                "showMaskOnFocus": false,
-                "rightAlign": false,
-                "removeMaskOnSubmit": false,
-                "autoUnmask": false,
-                "onincomplete": function() {
-                    if (this.value) {
-                        this.value = "";
-                        Swal.fire({
-                            title: "Valor inválido!",
-                            html: "Informe um ano no formato <u>aa</u>.",
-                            icon: "error",
-                            showCloseButton: true,
-                            showConfirmButton: false
-                        });
-                    }
-                }
-            });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "YY",
-                useCurrent: false
-            });
-        });
-        // Two Digits Year Blockpast
-        $(document).on("focus", ".two-digits-year-blockpast-mask", function(){
-            $(this).inputmask("text", {
-                "mask": ["99"],
-                "clearMaskOnLostFocus": true,
-                "showMaskOnHover": false,
-                "showMaskOnFocus": false,
-                "rightAlign": false,
-                "removeMaskOnSubmit": false,
-                "autoUnmask": false,
-                "onincomplete": function() {
-                    if (this.value) {
-                        this.value = "";
-                        Swal.fire({
-                            title: "Valor inválido!",
-                            html: "Informe um ano, posterior ao atual, no formato <u>aa</u>.",
-                            icon: "error",
-                            showCloseButton: true,
-                            showConfirmButton: false
-                        });
-                    }
-                }
-            });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "YY",
-                useCurrent: false,
-                minDate: moment()
-            });
-        });
-        // Two Digits Year Blockfuture
-        $(document).on("focus", ".two-digits-year-blockfuture-mask", function(){
-            $(this).inputmask("text", {
-                "mask": ["99"],
-                "clearMaskOnLostFocus": true,
-                "showMaskOnHover": false,
-                "showMaskOnFocus": false,
-                "rightAlign": false,
-                "removeMaskOnSubmit": false,
-                "autoUnmask": false,
-                "onincomplete": function() {
-                    if (this.value) {
-                        this.value = "";
-                        Swal.fire({
-                            title: "Valor inválido!",
-                            html: "Informe um ano, anterior ao atual, no formato <u>aa</u>.",
-                            icon: "error",
-                            showCloseButton: true,
-                            showConfirmButton: false
-                        });
-                    }
-                }
-            });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "YY",
-                useCurrent: false,
-                maxDate: moment()
-            });
-        });
-        // Two Digits Month and Year
-        $(document).on("focus", ".month-year-mask", function(){
-            $(this).inputmask("text", {
-                "mask": ["99/99"],
-                "clearMaskOnLostFocus": true,
-                "showMaskOnHover": false,
-                "showMaskOnFocus": false,
-                "rightAlign": false,
-                "removeMaskOnSubmit": false,
-                "autoUnmask": false,
-                "onincomplete": function() {
-                    if (this.value) {
-                        this.value = "";
-                        Swal.fire({
-                            title: "Valor inválido!",
-                            html: "Informe uma data no formato <u>mm/aa</u>.",
-                            icon: "error",
-                            showCloseButton: true,
-                            showConfirmButton: false
-                        });
-                    }
-                }
-            });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "MM/YY",
-                useCurrent: false,
-            });
-        });
-        // Two Digits Month and Year Blockpast
-        $(document).on("focus", ".month-year-blockpast-mask", function(){
-            $(this).inputmask("text", {
-                "mask": ["99/99"],
-                "clearMaskOnLostFocus": true,
-                "showMaskOnHover": false,
-                "showMaskOnFocus": false,
-                "rightAlign": false,
-                "removeMaskOnSubmit": false,
-                "autoUnmask": false,
-                "onincomplete": function() {
-                    if (this.value) {
-                        this.value = "";
-                        Swal.fire({
-                            title: "Valor inválido!",
-                            html: "Informe uma data, posterior à atual, no formato <u>mm/aa</u>.",
-                            icon: "error",
-                            showCloseButton: true,
-                            showConfirmButton: false
-                        });
-                    }
-                }
-            });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "MM/YY",
-                useCurrent: false,
-                disabledDates: [moment()],
-                minDate: moment()
-            });
-        });
-        // Two Digits Month and Year Blockfuture
-        $(document).on("focus", ".month-year-blockfuture-mask", function(){
-            $(this).inputmask("text", {
-                "mask": ["99/99"],
-                "clearMaskOnLostFocus": true,
-                "showMaskOnHover": false,
-                "showMaskOnFocus": false,
-                "rightAlign": false,
-                "removeMaskOnSubmit": false,
-                "autoUnmask": false,
-                "onincomplete": function() {
-                    if (this.value) {
-                        this.value = "";
-                        Swal.fire({
-                            title: "Valor inválido!",
-                            html: "Informe uma data, anterior à atual, no formato <u>mm/aa</u>.",
-                            icon: "error",
-                            showCloseButton: true,
-                            showConfirmButton: false
-                        });
-                    }
-                }
-            });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "MM/YY",
-                useCurrent: false,
-                maxDate: moment()
+            dateRangePickerLocale.format = "HH:mm";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: false,
+                timePicker: true,
+                timePicker24Hour: true,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+                maxDate: moment(),
+            }).on("showCalendar.daterangepicker", (ev, picker) => {
+                $(".calendar-time").css("margin-top", 0);
+                $(".calendar-table").css("visibility", "collapse");
             });
         });
         // Two Digits Day
@@ -966,7 +873,7 @@
                 "removeMaskOnSubmit": false,
                 "autoUnmask": false,
                 "onincomplete": function() {
-                    if (this.value) {
+                    if (this.value && (this.value < 1 || this.value > 12)) {
                         this.value = "";
                         Swal.fire({
                             title: "Valor inválido!",
@@ -989,11 +896,191 @@
                         });
                     }
                 },
+                "onBeforeWrite": function (event, buffer) {
+                    if (event.type === "blur") {
+                        if (buffer[1] == "_") {
+                            buffer[1] = buffer[0];
+                            buffer[0] = "0";
+                            return {
+                                refreshFromBuffer: true,
+                                buffer: buffer
+                            };
+                        }
+                    }
+                }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "MM",
-                useCurrent: false
+        });
+        // Two Digits Year
+        $(document).on("focus", ".two-digits-year-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value && (this.value < 1 || this.value > 99)) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe um mês no formato <u>aa</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+                "oncomplete": function() {
+                    if (this.value < 1 || this.value > 99) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe o número do ano, de 1 a 99.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+                "onBeforeWrite": function (event, buffer) {
+                    if (event.type === "blur") {
+                        if (buffer[1] == "_") {
+                            buffer[1] = buffer[0];
+                            buffer[0] = "0";
+                            return {
+                                refreshFromBuffer: true,
+                                buffer: buffer
+                            };
+                        }
+                    }
+                }
+            });
+        });
+        // Two Digits Month and Year
+        $(document).on("focus", ".two-digits-month-year-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99/99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe uma data no formato <u>mm/aa</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            dateRangePickerLocale.format = "MM/YY";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: false,
+                timePicker24Hour: false,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+            }).on("showCalendar.daterangepicker", (ev, picker) => {
+                $(".table-condensed thead tr:nth-child(2), .table-condensed tbody").hide();
+                let start = moment((parseInt($(".left .monthselect").val()) + 1) + "/01/" + $(".left .yearselect").val())
+                let end = moment((parseInt($(".right .monthselect").val()) + 1) + "/01/" + $(".right .yearselect").val())
+                $(this).data("daterangepicker").setStartDate(start);
+                $(this).data("daterangepicker").setEndDate(end);
+            });
+        });
+        // Two Digits Month and Year Blockpast
+        $(document).on("focus", ".two-digits-month-year-blockpast-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99/99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe uma data no formato <u>mm/aa</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            dateRangePickerLocale.format = "MM/YY";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: false,
+                timePicker24Hour: false,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+                minDate: moment(),
+            }).on("showCalendar.daterangepicker", (ev, picker) => {
+                $(".table-condensed thead tr:nth-child(2), .table-condensed tbody").hide();
+                let start = moment((parseInt($(".left .monthselect").val()) + 1) + "/01/" + $(".left .yearselect").val())
+                let end = moment((parseInt($(".right .monthselect").val()) + 1) + "/01/" + $(".right .yearselect").val())
+                $(this).data("daterangepicker").setStartDate(start);
+                $(this).data("daterangepicker").setEndDate(end);
+            });
+        });
+        // Two Digits Month and Year Blockfuture
+        $(document).on("focus", ".two-digits-month-year-blockfuture-mask", function(){
+            $(this).inputmask("text", {
+                "mask": ["99/99"],
+                "clearMaskOnLostFocus": true,
+                "showMaskOnHover": false,
+                "showMaskOnFocus": false,
+                "rightAlign": false,
+                "removeMaskOnSubmit": false,
+                "autoUnmask": false,
+                "onincomplete": function() {
+                    if (this.value) {
+                        this.value = "";
+                        Swal.fire({
+                            title: "Valor inválido!",
+                            html: "Informe uma data no formato <u>mm/aa</u>.",
+                            icon: "error",
+                            showCloseButton: true,
+                            showConfirmButton: false
+                        });
+                    }
+                }
+            });
+            dateRangePickerLocale.format = "MM/YY";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                timePicker: false,
+                timePicker24Hour: false,
+                timePickerSeconds: false,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+                maxDate: moment(),
+            }).on("showCalendar.daterangepicker", (ev, picker) => {
+                $(".table-condensed thead tr:nth-child(2), .table-condensed tbody").hide();
+                let start = moment((parseInt($(".left .monthselect").val()) + 1) + "/01/" + $(".left .yearselect").val())
+                let end = moment((parseInt($(".right .monthselect").val()) + 1) + "/01/" + $(".right .yearselect").val())
+                $(this).data("daterangepicker").setStartDate(start);
+                $(this).data("daterangepicker").setEndDate(end);
             });
         });
         // Duration
@@ -1019,11 +1106,19 @@
                     }
                 }
             });
-            $(this).datetimepicker({
-                locale: "pt-br",
-                format: "HH:mm:ss",
-                useCurrent: false,
-                defaultDate: moment().startOf("day")
+            dateRangePickerLocale.format = "HH:mm:ss";
+            $(this).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: false,
+                timePicker: true,
+                timePicker24Hour: true,
+                timePickerSeconds: true,
+                autoApply: false,
+                autoUpdateInput: true,
+                locale: dateRangePickerLocale,
+            }).on("showCalendar.daterangepicker", (ev, picker) => {
+                $(".calendar-time").css("margin-top", 0);
+                $(".calendar-table").css("visibility", "collapse");
             });
         });
         // Time Interval
@@ -1160,19 +1255,20 @@
                 }
             });
         });
-        // Disable first option in select
+        // Disable First Option of Select
         $(document).on("focus", ".first-disabled", function(){
-            $(this).find("option:first").attr('disabled', true);
+            $(this).find("option:first").attr("disabled", true);
         });
-        // Apply mask on page load
+        // Apply Masks on Pageshow
         $(window).on("pageshow", function() {
             setTimeout(function(){
-                $("input[class$='-mask']").each(function(){
+                $("input[class$='-mask']").not(ignoreOnInitialFocus).each(function(){
                     this.focus({
                         preventScroll: true
                     });
                     this.blur();
                 });
+                $(".daterangepicker").hide();
             }, 250);
         });
     </script>

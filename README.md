@@ -29,7 +29,7 @@ E, ao final da tag **body**:
 </body>
 ```
 
-Certifique-se de que o **jQuery v3.2.1**, ou superior, esteja presente no body.
+Certifique-se de que o **jQuery v3.5.1**, ou superior, esteja presente no body.
 
 ## Utilização
 Para aplicar uma máscara, basta adicioná-la como classe a um **input do tipo texto**, por exemplo:
@@ -105,86 +105,92 @@ As máscaras disponíveis são:
 	```
 - datetime-mask 
 	```
-	> 99/99/9999 99:99
+	> 01/01/0001 00:00
+	> 31/12/9999 23:59
 	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD HH:mm:00
 	```
 - datetime-blockpast-mask
 	```
-	> 99/99/9999 99:99 (a partir da data atual)
+	> 01/01/0001 00:00 (a partir da data atual)
+	> 31/12/9999 23:59
 	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD HH:mm:00
 	```
 - datetime-blockfuture-mask
 	```
-	> 99/99/9999 99:99 (até a data atual)
+	> 01/01/0001 00:00
+	> 31/12/9999 23:59 (até a data atual)
 	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD HH:mm:00
 	```
 - date-mask
 	```
-	> 99/99/9999
+	> 01/01/0001
+	> 31/12/9999
 	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD 00:00:00
 	```
 - date-blockpast-mask
 	```
-	> 99/99/9999 (a partir da data atual)
+	> 01/01/0001 (a partir da data atual)
+	> 31/12/9999
 	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD 00:00:00
 	```
 - date-blockfuture-mask
 	```
-	> 99/99/9999 (até a data atual)
+	> 01/01/0001
+	> 31/12/9999 (até a data atual)
 	> Ao enviar o formulário, será automaticamente formatado para YYYY-MM-DD 00:00:00
 	```
 - time-mask
 	```
-	> 99:99
+	> 00:00
+	> 23:59
 	> Ao enviar o formulário, será automaticamente completado com a data atual no formato YYYY-MM-DD HH:mm:00
 	```
 - time-blockpast-mask
 	```
-	> 99:99 (a partir da hora atual)
+	> 00:00 (a partir da hora atual)
+	> 23:59
 	> Ao enviar o formulário, será automaticamente completado com a data atual no formato YYYY-MM-DD HH:mm:00
 	```
 - time-blockfuture-mask
 	```
-	> 99:99 (até a hora atual)
+	> 00:00
+	> 23:59 (até a hora atual)
 	> Ao enviar o formulário, será automaticamente completado com a data atual no formato YYYY-MM-DD HH:mm:00
-	```
-- two-digits-year-mask
-	```
-	> 99
-	```
-- two-digits-year-blockpast-mask
-	```
-	> 99 (a partir do ano atual)
-	```
-- two-digits-year-blockfuture-mask
-	```
-	> 99 (até o ano atual)
-	```
-- month-year-mask
-	```
-	> 99/99
-	```
-- month-year-blockpast-mask
-	```
-	> 99/99 (a partir da data atual)
-	```
-- month-year-blockfuture-mask
-	```
-	> 99/99 (até a data atual)
 	```
 - two-digits-day-mask
 	```
-	> 1
+	> 01
 	> 31
 	```
 - two-digits-month-mask
 	```
-	> 1
+	> 01
 	> 12
+	```
+- two-digits-year-mask
+	```
+	> 01
+	> 99
+	```
+- two-digits-month-year-mask
+	```
+	> 01/01
+	> 12/99
+	```
+- two-digits-month-year-blockpast-mask
+	```
+	> 01/01 (a partir da data atual)
+	> 12/99
+	```
+- two-digits-month-year-blockfuture-mask
+	```
+	> 01/01
+	> 12/99 (até a data atual)
 	```
 - duration-mask
 	```
-	> 99:99:99
+	> 00:00:00
+	> 23:59:59
 	```
 - time-interval-mask
 	```
@@ -241,12 +247,12 @@ Para mais instruções, leia a seguinte documentação: [RobinHerbots/Inputmask]
 ## Solução de Problemas
 Na view onde foi realizada a configuração inicial (no exemplo, **layouts/app.blade.php**) certifique-se de **não** ter incluído Javascript e CSS dos seguintes plugins:
 - Moment
-- Datetimepicker
+- Daterangepicker
 - Inputmask
 - jQuery MaskMoney
 - SweetAlert2
 
-Além disso, certifique-se de ter incluído o **jQuery v3.2.1**, ou superior, ao body da view supracitada.
+Além disso, certifique-se de ter incluído o **jQuery v3.5.1**, ou superior, ao body da view supracitada.
 
 ## Agradecimentos
 Um muito obrigado a [fpviviani](https://github.com/fpviviani) pelo desenvolvimento de algumas máscaras.
