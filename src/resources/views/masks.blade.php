@@ -8,16 +8,18 @@
     {{-- Masks --}}
     <style type="text/css">
         .swal2-popup {
-            font-size: 1.6rem;
-            width: 30rem;
+            font-size: 24px;
+            width: 480px;
+            padding: 20px;
         }
         .swal2-icon {
-            font-size: 1.3rem;
+            font-size: 18px;
             margin-top: 0;
-            margin-bottom: 32px;
+            margin-bottom: 20px;
         }
         .swal2-title {
             font-size: 20px;
+            margin-bottom: 5px;
         }
         .swal2-content {
             font-size: 16px;
@@ -25,7 +27,7 @@
             margin-bottom: 0;
         }
         .swal2-actions {
-            margin-top: 32px;
+            margin-top: 20px;
             margin-bottom: 0;
         }
         .swal2-confirm {
@@ -35,7 +37,9 @@
             margin: 0 2.5px;
         }
         .swal2-close {
-            font-size: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 4px 4px 0 0;
         }
         .swal2-close:focus {
             outline: none;
