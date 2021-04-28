@@ -9,6 +9,7 @@
     <style type="text/css">
         .swal2-popup {
             font-size: 1.6rem;
+            width: 30rem;
         }
         .swal2-icon {
             font-size: 1.3rem;
@@ -20,6 +21,7 @@
         }
         .swal2-content {
             font-size: 16px;
+            line-height: 120%;
             margin-bottom: 0;
         }
         .swal2-actions {
