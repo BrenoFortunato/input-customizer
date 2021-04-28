@@ -10,12 +10,27 @@
         .swal2-popup {
             font-size: 1.6rem;
         }
+        .swal2-icon {
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 32px;
+        }
         .swal2-title {
             font-size: 20px;
         }
         .swal2-content {
             font-size: 16px;
-            margin-bottom: 20px;
+            margin-bottom: 0;
+        }
+        .swal2-actions {
+            margin-top: 32px;
+            margin-bottom: 0;
+        }
+        .swal2-confirm {
+            margin: 0 2.5px;
+        }
+        .swal2-cancel {
+            margin: 0 2.5px;
         }
         .swal2-close {
             font-size: 30px;
