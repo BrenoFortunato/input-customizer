@@ -102,7 +102,6 @@
                 "Dezembro"
             ],
         };
-        let ignoreOnInitialFocus = ".datetime-mask, .datetime-blockpast-mask, .datetime-blockfuture-mask, .date-mask, .date-blockpast-mask, .date-blockfuture-mask, .time-mask, .time-blockpast-mask, .time-blockfuture-mask, .two-digits-month-year-mask, .two-digits-month-year-blockpast-mask, .two-digits-month-year-blockfuture-mask, .duration-mask";
         // Money
         $(".money-mask").each(function(){
             let value = $(this).val();
@@ -1283,11 +1282,13 @@
         // Apply Masks on Pageshow
         $(window).on("pageshow", function() {
             setTimeout(function(){
-                $("input[class$='-mask']").not(ignoreOnInitialFocus).each(function(){
-                    this.focus({
-                        preventScroll: true
-                    });
-                    this.blur();
+                $("input[class$='-mask']").each(function(){
+                    if ($(this).val()) {
+                        this.focus({
+                            preventScroll: true
+                        });
+                        this.blur();
+                    }
                 });
                 $(".daterangepicker").hide();
             }, 250);
